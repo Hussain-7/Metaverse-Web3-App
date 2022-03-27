@@ -2,6 +2,8 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Login from '../components/Login'
 
+
+
 const Home: NextPage = () => {
   const isAuthenticated = false
   if (!isAuthenticated) return <Login />

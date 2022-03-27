@@ -2,24 +2,23 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Login from '../components/Login'
 import { useMoralis } from 'react-moralis'
+import Header from '../components/Header'
+import Messages from '../components/Messages'
 
 const Home: NextPage = () => {
-  const { isAuthenticated, logout, isInitializing } = useMoralis()
+  const { isAuthenticated, logout } = useMoralis()
   if (!isAuthenticated) return <Login />
   return (
-    <div className="h-screen">
+    <div className="h-screen overflow-hidden overflow-y-scroll bg-gradient-to-b from-black to-fuchsia-900">
       <Head>
         <title>Metaverse App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <>Welcome to the App</>
-      <button
-        onClick={logout}
-        className={`rounded-lg bg-[#e7b349] px-6 py-3 font-bold`}
-      >
-        {' '}
-        Logout from Metaverse
-      </button>
+      <div className="mx-auto max-w-screen-2xl">
+        {/* Header */}
+        <Header />
+        {/* Messages */}
+      </div>
     </div>
   )
 }

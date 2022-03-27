@@ -4,23 +4,22 @@ import { useMoralis } from 'react-moralis'
 const Login = () => {
   const { authenticate, isAuthenticating, isAuthenticated } = useMoralis()
   const [isLoading, setIsLoading] = useState(false)
+  const handleLogin = () => {
+    setIsLoading(true)
+    authenticate()
+  }
   return (
     <div className="relative bg-black">
       <div className="absolute z-50 flex h-4/6 w-full flex-col items-center justify-center space-y-5">
         <Image
           src="https://img.freepik.com/free-vector/golden-meta-metaverse-3d-logo-round-style-isolated-black-new-facebook-logo_75010-314.jpg"
-          className="rounded-full object-cover"
+          className="rounded-full object-cover mix-blend-overlay"
           height={150}
           width={150}
         />
         <button
-          onClick={() => {
-            setIsLoading(true)
-            authenticate()
-          }}
-          className={`${
-            !isAuthenticating && 'animate-pulse'
-          } flex items-center rounded-lg bg-[#e7b349] px-4 py-3 font-bold`}
+          onClick={handleLogin}
+          className={`flex items-center rounded-lg bg-[#e7b349] px-4 py-3 font-bold`}
         >
           <svg
             role="status"
@@ -40,7 +39,9 @@ const Login = () => {
               fill="currentFill"
             />
           </svg>
-          Login to the Metaverse
+          {isAuthenticating && isLoading
+            ? 'Logging ...'
+            : 'Login to the Metaverse'}
         </button>
       </div>
       <div className="h-screen w-full">

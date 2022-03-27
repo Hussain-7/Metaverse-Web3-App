@@ -4,7 +4,7 @@ module.exports = {
   images: {
     domains: [
       'links.papareact.com',
-      'avatars.dicebaear.com',
+      'avatars.dicebear.com',
       'milkywaygalaxy.io',
       'img.freepik.com',
     ],

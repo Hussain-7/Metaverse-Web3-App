@@ -23,7 +23,7 @@ const Messages = () => {
   )
 
   return (
-    <div className="pb-56">
+    <div className="pb-56 max-w-screen-xl mx-auto">
       <div className="my-5">
         <ByMoralis
           variant="dark"

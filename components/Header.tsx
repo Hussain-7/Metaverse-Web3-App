@@ -2,7 +2,7 @@ import Image from 'next/image'
 import React from 'react'
 import { useMoralis } from 'react-moralis'
 import Avatar from './Avatar'
-import ChangeUsername from './changeUsername'
+import ChangeUsername from './ChangeUsername'
 
 const Header = () => {
   const { user } = useMoralis()
@@ -18,11 +18,11 @@ const Header = () => {
           />
         </div>
         <div className="col-span-4 text-left lg:text-center">
-          <div className="relative h-48 w-48 rounded-full border-8 border-pink-500 lg:mx-auto">
+          <div className="relative h-28 w-28 rounded-full border-8 border-pink-500 lg:mx-auto">
             <Avatar username={'Hussain'} logoutOnPress={true} />
           </div>
-          <h1 className="text-3xl ">Welcome to MetaVerse</h1>
-          <h2 className="truncate text-5xl font-bold ">
+          <h1 className="text-xl ">Welcome to MetaVerse</h1>
+          <h2 className="truncate text-2xl font-bold ">
             {user?.getUsername()}
           </h2>
           <ChangeUsername />

@@ -9,7 +9,7 @@ const Home: NextPage = () => {
   const { isAuthenticated, logout } = useMoralis()
   if (!isAuthenticated) return <Login />
   return (
-    <div className="h-screen  bg-gradient-to-b from-black to-fuchsia-900">
+    <div className="h-screen overflow-hidden overflow-y-scroll bg-gradient-to-b from-black to-fuchsia-900">
       <Head>
         <title>Metaverse App</title>
         <link rel="icon" href="/favicon.ico" />

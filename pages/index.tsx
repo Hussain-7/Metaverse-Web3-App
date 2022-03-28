@@ -6,7 +6,7 @@ import Header from '../components/Header'
 import Messages from '../components/Messages'
 
 const Home: NextPage = () => {
-  const { isAuthenticated, logout } = useMoralis()
+  const { isAuthenticated } = useMoralis()
   if (!isAuthenticated) return <Login />
   return (
     <div className="h-screen overflow-hidden overflow-y-scroll bg-gradient-to-b from-black to-fuchsia-900">

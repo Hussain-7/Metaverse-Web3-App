@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { useMoralis } from 'react-moralis'
 import moralis from 'moralis'
-const SendMessage = ({ endOfMessagesRef }) => {
+const SendMessage = ({ endOfMessagesRef }: any) => {
   const { user } = useMoralis()
-  const [message, setMessage] = useState()
+  const [message, setMessage] = useState('')
 
-  const sendMessage = (e) => {
+  const sendMessage = (e: any) => {
     e.preventDefault()
     if (!message) return
     // Creating a table for messages in moralis database
@@ -18,10 +18,10 @@ const SendMessage = ({ endOfMessagesRef }) => {
         ethAddress: user?.get('ethAddress'),
       })
       .then(
-        (message) => {
+        () => {
           console.log('Object successfuly saved')
         },
-        (error) => {
+        (error: any) => {
           console.log('Error saving object: ', error.message)
         }
       )
@@ -35,7 +35,7 @@ const SendMessage = ({ endOfMessagesRef }) => {
         className="z-50 flex-grow rounded-full bg-transparent text-white outline-none "
         placeholder={`Enter a Message ${user?.getUsername()}...`}
         value={message}
-        onChange={(e) => setMessage(e.target.value)}
+        onChange={(e) => setMessage(e?.target?.value)}
       />
       <button onClick={sendMessage} className="font-bold text-pink-500">
         Send

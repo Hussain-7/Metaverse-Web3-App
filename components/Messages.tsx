@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import { ByMoralis, useMoralis, useMoralisQuery } from 'react-moralis'
 import Message from './Message'
 import SendMessage from './SendMessage'
@@ -7,7 +7,7 @@ const MINS_DURATION = 15
 const Messages = () => {
   const { user } = useMoralis()
   const endOfMessagesRef = useRef(null)
-  const { data, loading, error } = useMoralisQuery(
+  const { data } = useMoralisQuery(
     'Messages',
     (query) =>
       query
@@ -23,7 +23,7 @@ const Messages = () => {
   )
 
   return (
-    <div className="pb-56 max-w-screen-xl mx-auto">
+    <div className="mx-auto max-w-screen-xl pb-56">
       <div className="my-5">
         <ByMoralis
           variant="dark"

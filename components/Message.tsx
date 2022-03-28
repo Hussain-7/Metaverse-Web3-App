@@ -2,8 +2,10 @@ import React from 'react'
 import { useMoralis } from 'react-moralis'
 import TimeAgo from 'timeago-react'
 import Avatar from './Avatar'
-
-const Message = ({ message }) => {
+type Props = {
+  message: any
+}
+const Message = ({ message }: Props) => {
   const { user } = useMoralis()
   const isUserMessage = message.get('ethAddress') === user?.get('ethAddress')
   console.log('message', message.createdAt)
@@ -16,7 +18,7 @@ const Message = ({ message }) => {
         className={`relative mt-auto h-8 w-8
 			${isUserMessage && 'order-last ml-2'}`}
       >
-        <Avatar username={message.get('user')} />
+        <Avatar username={message.get('user')} logoutOnPress={false} />
       </div>
       <div
         className={`flex space-x-4 rounded-lg p-3
